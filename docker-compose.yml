@@ -1,0 +1,18 @@
+services:
+  haproxy:
+    image: haproxytech/haproxy-alpine:2.4
+    volumes:
+      - ./config/:/usr/local/etc/haproxy/
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 80:80
+      - 8404:8404
+    depends_on:
+      - app1
+  app1:
+    image: jmalloc/echo-server:latest
+    ports:
+      - 8080:8080
