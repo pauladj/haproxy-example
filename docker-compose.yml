@@ -9,6 +9,6 @@ services:
     depends_on:
       - app1
   app1:
-    image: jmalloc/echo-server:latest
+    image: jmalloc/echo-server:0.3.3
     ports:
       - 8080:8080
